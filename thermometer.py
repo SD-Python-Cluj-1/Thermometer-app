@@ -1,23 +1,20 @@
-class Thermometer():
-    def __init__(self, inside, temp, celsius, fahrenheit):
-        self.temp = temp
-        self.celsius = celsius
-        self.fahrenheit = fahrenheit
-        self.inside = set.temp
+class Thermometer:
+    def __init__(self, temperature):
+        self.temperature = temperature
 
-    def get_temp(self, temp):
-        self.inside = temp
+    def get_temp(self, unit="C"):
+        if unit == "C":
+            return self.temperature
+        elif unit == "F":
+            return self.to_fahrenheit(self.temperature)
 
-    def set_temp(self, temp):
-        self.temp = input("set_temp: > ")
-        return temp
+    def set_temp(self, temperature):
+        self.temperature = temperature
 
-    def to_celsius(self, temp):
-        if "C" in temp:
-        self.temp = (temp * 9/5) + 32
-        pass
+    def to_celsius(self, temperature):
+        temperature = (temperature - 32) * 5/9
+        return temperature
 
-    def to_fahrenheit(self, temp):
-        if "F" in temp:
-            self.temp = (temp - 32)*5/9
-        pass
+    def to_fahrenheit(self, temperature):
+        temperature = (temperature * 9/5) + 32
+        return temperature
