@@ -18,3 +18,6 @@ class Thermometer:
     def to_fahrenheit(self, temperature):
         temperature = (temperature * 9/5) + 32
         return temperature
+
+
+    temp = property(get_temp, set_temp)
